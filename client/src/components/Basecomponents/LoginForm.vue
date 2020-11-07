@@ -2,8 +2,8 @@
   <div class="login-form">
       <form @submit.prevent="submitLogin">
         <div class="form-controls">
-          <input type="text" placeholder="USER NAME" id="username" class="input-username" v-model="enteredUsername">
-          <input type="password" placeholder="*********" id="password" class="input-password" v-model="enteredPassword">
+          <input type="text" placeholder="USER NAME" id="username" class="input-username" v-model="userDetails.userName">
+          <input type="password" placeholder="*********" id="password" class="input-password" v-model="userDetails.password">
         </div>
         <button>Sign In</button>
       </form>
@@ -15,17 +15,25 @@
 export default {
     data(){
         return {
-            enteredUsername:'',
-            enteredPassword:''
+            userDetails:{
+                userName:'',
+                password:''
+            }
         }
     },
+    computed:{
+       token(){
+           return this.$store.state.token;
+       }
+    },
+    watch:{
+       token(){
+           this.$router.push('/streams')
+       }
+    },
     methods:{
-       submitLogin(){
-          const details={
-             username:this.enteredUsername,
-            password:this.enteredPassword
-          }
-        console.log(details)
+       async submitLogin(){
+          this.$store.dispatch('login',this.userDetails)
        },
         moveToRegister(){
             console.log('moving to register Page')

@@ -1,12 +1,35 @@
 <template>
 <div class="stream-page">
   <h1>All avilable streams</h1>
-  <button>Add Stream</button>
+  <stream-view v-for="stream in streams" :key="stream._id" 
+  :title="stream.title"
+  :description="stream.description"
+  :id="stream._id"></stream-view>
+  <button @click="moveToAddstream">Add Stream</button>
 </div>
 </template>
 
 <script>
+import StreamView from '../components/streams/StreamView.vue'
 export default {
+  name:'StreamsPage',
+  components:{
+    'stream-view':StreamView
+  },
+  methods:{
+    moveToAddstream(){
+      this.$router.push('/addstream')
+    }
+
+  },
+   computed: {
+        streams() {
+            return this.$store.state.streams;
+        }
+    },
+  mounted(){
+    this.$store.dispatch('loadStreams')
+  }
 
 }
 </script>
@@ -17,12 +40,11 @@ export default {
     height:600px;
     display:flex;
     flex-direction:column; 
-    margin:50px;
 }
 
 button{
    height:40px;
-   margin-top:500px;
+   margin-top:100px;
    display:flex;
    justify-content: center;
    align-items: center;
@@ -37,5 +59,10 @@ button{
 }
 button:hover{
     border: 2px solid rgb(7, 4, 150);
+}
+stream-view{
+  width:100%;
+  height:140px;
+  border:2px solid orange;
 }
 </style>

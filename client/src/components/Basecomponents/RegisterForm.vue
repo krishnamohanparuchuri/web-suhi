@@ -1,8 +1,11 @@
 <template>
   <form @submit.prevent="submitRegister">
+      <p v-if="showRegister === true" class="register-user">New User is Registered!</p>
       <div class="form-controls">
-         <input type="text" placeholder="USER NAME" id="username" class="input-username" v-model="inputUsername">
-         <input type="password" placeholder="*********" id="password" class="input-password" v-model="inputPassword">
+          <input type="email" placeholder="dummy@test.com" id="email" class="input-email" v-model="email">
+         <input type="text" placeholder="USER NAME" id="username" class="input-username" v-model="userName">
+         <input type="password" placeholder="*********" id="password" class="input-password" v-model="password">
+         <input type="password" placeholder="*********" id="repeat-password" class="input-password" v-model="repeatPassword">
       </div>
       <div class="form-controls-check">
            <input type="checkbox" name="security-check" id="security-check" v-model="isChecked">
@@ -18,27 +21,36 @@ export default {
     name:'RegisterForm',
     data(){
         return{
-            inputUsername:'',
-            inputPassword:'',
-            isChecked:true
+            userName:'',
+            password:'',
+            repeatPassword:'',
+            email:'',
+            isChecked:true,
+            showRegister:false,
         }
     },
     methods:{
         submitRegister(){
-            if(!this.isChecked){
-                console.log('checkbox must enabled')
-                this.isChecked=false;
+            if(this.password === !this.repeatPassword){
                  return;
             } else {
 
                     const userDetails= {
-                        userName:this.inputUsername,
-                        password:this.inputPassword
+                        userName:this.userName,
+                        password:this.password,
+                        email:this.email,
                     }
                     console.log(userDetails)
-                }
-                this.inputUsername='';
-                this.inputPassword='';
+                this.$store.dispatch('registerUser',userDetails)
+            }
+            this.showRegister=true;
+                this.username='';
+                this.password='';
+                this.repeatPassword='';
+                this.email='';
+            setTimeout(()=>{
+               this.$router.push('/login');
+            },1000)
         }
     }
 
@@ -90,6 +102,11 @@ form{
    justify-content: center;
    align-items:center;
 
+}
+.register-user{
+    font-size:24px;
+    font-weight: 900;
+    color:peru;
 }
 button{
    height:40px;

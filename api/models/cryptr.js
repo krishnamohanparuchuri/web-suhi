@@ -8,6 +8,11 @@ module.exports = {
         const stringFormat = String(encryptedString)
         console.log(stringFormat)
         return stringFormat
+    },
+
+    async convertToText(encryptedString) {
+        const description = await cryptr.decrypt(encryptedString);
+        return description
     }
 
 }

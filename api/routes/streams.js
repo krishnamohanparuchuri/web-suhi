@@ -20,8 +20,8 @@ router.post('/streams', verifyToken.authorize, async (req, res) => {
     }
 })
 
-router.get('/streams', async (req, res) => {
-    const userStreams = await Streams.getStreams();
+router.get('/streams', verifyToken.authorize, async (req, res) => {
+    const userStreams = await Streams.getStreams(req.user);
     console.log(userStreams)
     if (userStreams) {
         res.status(200).json({
@@ -33,6 +33,32 @@ router.get('/streams', async (req, res) => {
         res.status(400).json({
             message: 'Not authorized'
         })
+    }
+
+})
+
+router.delete('/stream', verifyToken.authorize, async (req, res) => {
+    console.log(req.body)
+    const product = await Streams.removeStream(req.body, req.user)
+    if (product) {
+        res.status(200).json({
+            message: "Product is deleted",
+            "id": req.body.id
+        })
+    } else {
+        res.status(404).json({ message: 'you are not able to delete' })
+    }
+
+})
+
+router.delete('/streams', verifyToken.authorize, async (req, res) => {
+    const product = await Streams.removeAllStreams(req.user)
+    if (product) {
+        res.status(200).json({
+            message: "All Products are deleted",
+        })
+    } else {
+        res.status(404).json({ message: 'you are not able to delete' })
     }
 
 })

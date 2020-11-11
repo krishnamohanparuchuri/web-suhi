@@ -57,5 +57,43 @@ module.exports = {
     async findUserByuuid(uuid) {
         const user = await userDb.findOne({ uuid: uuid })
         return user;
-    }
+    },
+    async addtag(inputData, userInfo) {
+        const user = await userDb.findOne({ uuid: userInfo.uuid })
+        console.log(user)
+        if (!user.tags) {
+            const userWithTag = await userDb.update({ uuid: userInfo.uuid }, { $set: { "tags": [] } })
+            const newuserInfo = await userDb.update({ uuid: userInfo.uuid }, { $push: { tags: { tagName: inputData.tagName, id: new Date().getTime() } } })
+            console.log(newuserInfo)
+            return newuserInfo > 1
+        } else {
+            const newuserInfo = await userDb.update({ uuid: userInfo.uuid }, { $push: { tags: { tagName: inputData.tagName, id: new Date().getTime() } } })
+            console.log(newuserInfo)
+            return newuserInfo > 1
+        }
+
+    },
+    async getTags(userInfo) {
+        const user = await userDb.findOne({ uuid: userInfo.uuid })
+        console.log(user.tag)
+        return user
+    },
+    async removeTag(body, userInfo) {
+        // const user = await userDb.findOne({ uuid: userInfo.uuid })
+        // console.log(user)
+        // return user
+
+        const tagRemove = await userDb.update({ uuid: userInfo.uuid }, { $pop: { tags: body.id } })
+        // console.log(user)
+        // const tagInfo = user['tag']
+        console.log(tagRemove)
+        return tagRemove > 0
+    },
+    async removeAllTags(userInfo) {
+
+        const deleteTag = await userDb.update({ uuid: userInfo.uuid }, { multi: true }, { $pop: { tags: [] } })
+        console.log(deleteTag)
+        return deleteTag > 0
+    },
+
 }

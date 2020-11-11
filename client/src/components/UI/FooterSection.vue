@@ -1,6 +1,6 @@
 <template>
   <div class="footer-section">
-      <img alt="logo shui"  class="logo-bottom" src="../../assets/logo_1.png">
+      <img alt="logo shui"  class="logo-bottom" src="../../assets/footer.png">
   </div>
 </template>
 

@@ -9,7 +9,8 @@ export default new Vuex.Store({
     token: '',
     userName: [],
     message: '',
-    tags: []
+    tags: [],
+
   },
   mutations: {
     UPDATE_TOKEN(state, token) {
@@ -46,6 +47,10 @@ export default new Vuex.Store({
     DELETE_ALL_TAGS(state) {
       state.tags = []
     },
+    DELETE_USER(state) {
+      state.streams = [];
+      state.tags = [];
+    }
   },
   actions: {
     async registerUser(ctx, userDetails) {
@@ -179,6 +184,18 @@ export default new Vuex.Store({
       const data = await response.json();
       console.log(data)
       ctx.commit('DELETE_ALL_TAGS', data.message);
+    },
+    async deleteUser(ctx) {
+      const response = await fetch('http://localhost:5000/api/user', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': 'Bearer ' + ctx.state.token,
+        }
+      });
+      const data = await response.json();
+      console.log(data)
+      ctx.commit('DELETE_USER', data.message);
     }
 
   },

@@ -1,7 +1,7 @@
-{"multi":true,"_id":"S90jShYcdE5eZyEY"}
-{"userName":"krishna","email":"paruchurikris@gmail.com","password":"$2a$10$Gfcy5KvpZ1mQ7t7WQCzH5unwUKl9.W3rQKhFi3eHuSMfS3z4NyDPC","uuid":"0001fbb6-ac34-4571-a0e7-ce374fd49e4a","_id":"eTlD1gG2aR72Gz1O","tags":[{"tagName":"Linköping","id":1605118974312}]}
-{"userName":"krishna","email":"paruchurikris@gmail.com","password":"$2a$10$Gfcy5KvpZ1mQ7t7WQCzH5unwUKl9.W3rQKhFi3eHuSMfS3z4NyDPC","uuid":"0001fbb6-ac34-4571-a0e7-ce374fd49e4a","_id":"eTlD1gG2aR72Gz1O","tags":[{"tagName":"Linköping","id":1605118974312},{"tagName":"Linköping","id":1605119053157}]}
-{"userName":"krishna","email":"paruchurikris@gmail.com","password":"$2a$10$Gfcy5KvpZ1mQ7t7WQCzH5unwUKl9.W3rQKhFi3eHuSMfS3z4NyDPC","uuid":"0001fbb6-ac34-4571-a0e7-ce374fd49e4a","_id":"eTlD1gG2aR72Gz1O","tags":[{"tagName":"Linköping","id":1605118974312}]}
-{"userName":"krishna","email":"paruchurikris@gmail.com","password":"$2a$10$Gfcy5KvpZ1mQ7t7WQCzH5unwUKl9.W3rQKhFi3eHuSMfS3z4NyDPC","uuid":"0001fbb6-ac34-4571-a0e7-ce374fd49e4a","_id":"eTlD1gG2aR72Gz1O","tags":[]}
-{"userName":"krishna","email":"paruchurikris@gmail.com","password":"$2a$10$Gfcy5KvpZ1mQ7t7WQCzH5unwUKl9.W3rQKhFi3eHuSMfS3z4NyDPC","uuid":"0001fbb6-ac34-4571-a0e7-ce374fd49e4a","_id":"eTlD1gG2aR72Gz1O","tags":[{"tagName":"Märsta","id":1605122920703}]}
-{"userName":"krishna","email":"paruchurikris@gmail.com","password":"$2a$10$Gfcy5KvpZ1mQ7t7WQCzH5unwUKl9.W3rQKhFi3eHuSMfS3z4NyDPC","uuid":"0001fbb6-ac34-4571-a0e7-ce374fd49e4a","_id":"eTlD1gG2aR72Gz1O","tags":[{"tagName":"Märsta","id":1605122920703},{"tagName":"Linköping","id":1605122927415}]}
+{"multi":true,"_id":"tWZYfhHmo7Cpi0LS"}
+{"userName":"test","email":"test@test.com","password":"$2a$10$0eKipDrak2EgNvgrCh/toeYT9T.DTqLfXFV/VoyuYuYOpi/uH82ZK","uuid":"fb38fd26-3bf5-4df4-a79a-baf6b3cd2172","_id":"E8rOMOkwGil7vGDA"}
+{"userName":"test","email":"test@test.com","password":"$2a$10$0eKipDrak2EgNvgrCh/toeYT9T.DTqLfXFV/VoyuYuYOpi/uH82ZK","uuid":"fb38fd26-3bf5-4df4-a79a-baf6b3cd2172","_id":"E8rOMOkwGil7vGDA","tags":[]}
+{"userName":"test","email":"test@test.com","password":"$2a$10$0eKipDrak2EgNvgrCh/toeYT9T.DTqLfXFV/VoyuYuYOpi/uH82ZK","uuid":"fb38fd26-3bf5-4df4-a79a-baf6b3cd2172","_id":"E8rOMOkwGil7vGDA","tags":[{"tagName":"Linköping","id":1605179656084}]}
+{"$$deleted":true,"_id":"E8rOMOkwGil7vGDA"}
+{"userName":"test2","email":"test2@test.com","password":"$2a$10$7Nh/0JwIbZ42N0GODeHokeKZlw3lBQTgNPZQFPKv75TipaEGOFDkG","uuid":"30bfbfbe-49c1-44fc-b106-103d493030e0","_id":"vvqh2CGf7SDqXk2f"}
+{"$$deleted":true,"_id":"vvqh2CGf7SDqXk2f"}

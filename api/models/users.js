@@ -95,5 +95,9 @@ module.exports = {
         console.log(deleteTag)
         return deleteTag > 0
     },
+    async deleteUser(userInfo) {
+        const user = await userDb.remove({ uuid: userInfo.uuid })
+        return user > 0
+    }
 
 }

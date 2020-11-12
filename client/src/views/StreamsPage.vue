@@ -2,7 +2,11 @@
 <div class="stream-page">
   <img class="logo-top" alt="logo s" src="../assets/logo_s.png" @click="toggleView = !toggleView">
   <stream-tag v-if="toggleView"></stream-tag>
-  <h1>All avilable streams</h1>
+  <div class="header-section">
+
+     <h1>All avilable streams</h1>
+     <button @click="deleteUser">Delete user</button>
+  </div>
   <div class="stream-body">
 
   <stream-view v-for="stream in streams" :key="stream.id" 
@@ -42,6 +46,10 @@ export default {
     },
     deleteAllStreams(){
       this.$store.dispatch('deleteAllStreams')
+    },
+    deleteUser(){
+      this.$store.dispatch('deleteUser');
+      this.$router.push('/login')
     }
 
   },
@@ -65,9 +73,17 @@ export default {
     flex-direction:column; 
     margin:0 auto;
 }
-h1{
-  margin:0 auto;
+.header-section{
+  display:flex;
+  width:100%;
+}
+.header-section > h1{
+  width:60%;
   color:peru;
+  margin-left:30px;
+}
+.header-section >button{
+  width:100px;
 }
 .streampage-buttons{
   display:flex;

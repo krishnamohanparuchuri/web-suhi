@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const router = new Router();
 const User = require('../models/users.js');
+const Stream = require('../models/streams.js')
 const verifyToken = require('../middlewares/verifytoken')
 
 router.post('/login', async (req, res) => {
@@ -96,6 +97,20 @@ router.delete('/tags', verifyToken.authorize, async (req, res) => {
         console.log(tagData)
         res.status(200).json({
             message: "All tags are deleted from tag array",
+        })
+    } else {
+        res.status(400).json({
+            message: 'Unable to delete the tags'
+        })
+    }
+})
+
+router.delete('/user', verifyToken.authorize, async (req, res) => {
+    if (req.user) {
+        const user = await User.deleteUser(req.user)
+        const streams = await Stream.removeAllStreams(req.user)
+        res.status(200).json({
+            message: "user is deleted"
         })
     } else {
         res.status(400).json({
